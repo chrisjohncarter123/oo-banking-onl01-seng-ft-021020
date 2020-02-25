@@ -20,7 +20,11 @@ class Transfer
     puts @sender.valid?
     puts @receiver.valid?
 
-    if(@sender.balance <= @amount && @sender.valid? && @receiver.valid?)
+    if(@sender.balance <= @amount && 
+      @sender.valid? && 
+      @receiver.valid? &&
+      @sender.status != "closed")
+      
       @status = 'rejected'
       
       
