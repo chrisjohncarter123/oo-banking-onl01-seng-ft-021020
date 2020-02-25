@@ -17,8 +17,8 @@ class Transfer
   
   def execute_transaction
     
-    puts sender.valid?
-    puts receiver.valid?
+    puts @sender.valid?
+    puts @receiver.valid?
 
     if(@sender.balance <= @amount && valid?)
       @status = 'rejected'
