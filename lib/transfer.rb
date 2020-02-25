@@ -18,6 +18,7 @@ class Transfer
   def execute_transaction
     sender.deposit(amount * -1)
     receiver.deposit(amount)
+    @status = "pending"
   end
   
   def reverse_transfer
