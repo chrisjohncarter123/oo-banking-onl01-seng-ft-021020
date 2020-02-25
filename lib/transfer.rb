@@ -16,9 +16,11 @@ class Transfer
   end
   
   def execute_transaction
-    sender.deposit(amount * -1)
-    receiver.deposit(amount)
-    @status = 'complete'
+    if(@status == 'pending')
+      sender.deposit(amount * -1)
+      receiver.deposit(amount)
+      @status = 'complete'
+    end 
   end
   
   def reverse_transfer
