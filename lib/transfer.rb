@@ -16,7 +16,7 @@ class Transfer
   end
   
   def execute_transaction
-    if(@status == 'pending' && sender.bal)
+    if(@status == 'pending' && @sender.balance >= @amount)
       sender.deposit(amount * -1)
       receiver.deposit(amount)
       @status = 'complete'
